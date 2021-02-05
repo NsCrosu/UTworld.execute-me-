@@ -1,0 +1,20 @@
+cr.word[0,0] = "Object: Me";
+cr.word[0,1] = ">Name: Chara";
+cr.word[0,2] = ">Health: None";
+cr.word[0,3] = ">ATK: None";
+cr.word[0,4] = ">DEF: None";
+cr.word[0,5] = ">Weapon: None";
+cr.word[0,6] = ">Gold: None";
+cr.word[0,7] = ">EXP: None";
+cr.word[0,8] = ">LOVE: None";
+////////////////////////////////
+cr.word[1,0] = "Object: You";
+cr.word[1,1] = ">Name: Frisk";
+cr.word[1,2] = ">Health: 20";
+cr.word[1,3] = ">ATK: 0";
+cr.word[1,4] = ">DEF: 0";
+cr.word[1,5] = ">Weapon: Stick";
+cr.word[1,6] = ">Gold: 0";
+cr.word[1,7] = ">EXP: 0";
+cr.word[1,8] = ">LOVE: 1";
+cr.dt = 1;

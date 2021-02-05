@@ -1,0 +1,22 @@
+len = array_create(20, 0);
+len[3] = array_create(20, 0);
+len[10] = array_create(20, 0);
+len[12] = array_create(20, 0);
+len[15] = array_create(20, 0);
+time = array_create(20, 0);
+word = array_create(2, 0);
+for(var i=0;i<20;++i){word[i]=array_create(10, 0);}
+global.sf[0] = surface_create(640, 480);
+activate = false;
+on = 0;
+re = 0;
+go = 0;
+pe = 0;
+co = 0;
+oc = 0;
+dt = 0;
+st = 0;
+cp = 0;
+dp = 0;
+fd = 0;
+sm = 0;
