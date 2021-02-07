@@ -18,3 +18,4 @@ cr.word[1,6] = ">Gold: 0";
 cr.word[1,7] = ">EXP: 0";
 cr.word[1,8] = ">LOVE: 1";
 cr.dt = 1;
+log.str+="/dataTable.fillData(Me, You);";

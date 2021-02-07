@@ -1,1 +1,2 @@
-modes[now]();
+modes[nowMode]();
+states[nowState]();

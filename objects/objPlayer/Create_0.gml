@@ -2,8 +2,19 @@ enum mode{
 	red,
 	blue
 }
-modes = array_create(5, 0);
+enum state{
+	normal,
+	slow,
+	hurt,
+	die
+}
+modes = array_create(2, 0);
+states = array_create(3, 0);
 moveable = false;
-now = mode.red;
+nowMode = mode.red;
+nowState = state.normal;
+invTime = 40;
+dmgHP = 2;
 nowHP = 20;
 maxHP = 20;
+spd = 3;
