@@ -15,6 +15,6 @@ nowMode = mode.red;
 nowState = state.normal;
 invTime = 40;
 dmgHP = 2;
-nowHP = 20;
+nowHP = 20+999;
 maxHP = 20;
 spd = 3;

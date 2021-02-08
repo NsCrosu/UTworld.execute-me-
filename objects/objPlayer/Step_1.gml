@@ -32,6 +32,8 @@ modes[mode.blue] = function(){
 states[state.normal] = function(){
 	if keyboard_check(vk_shift){
 		nowState = state.slow;
+	}else{
+		if spd != 3{spd = 3;}
 	}
 	if nowHP <= 0{
 		nowState = state.die;

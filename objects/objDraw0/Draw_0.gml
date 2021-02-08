@@ -1,4 +1,36 @@
 if activate{
+	if sk{
+		draw_set_alpha(len[18]-len[19]);
+		draw_set_halign(fa_right);
+		draw_set_valign(fa_bottom);
+		draw_set_color(c_gray);
+		draw_set_font(fntDetermine);
+		draw_text(630, 470, "Press [S] to skip");
+		draw_set_alpha(1);
+	}
+	if sk == 1{
+		if keyboard_check_pressed(ord("S")){
+			objAd.timeline_position=111.1152133;
+			objAd.game_time=640;
+			objLog.str="";
+			i=0;
+			repeat(30){objLog.strdraw[i]="";i++;}
+			plx=320;
+			ply=240;
+			on=1;
+			re=0;
+			pe=0;
+			co=0;
+			fd=0;
+			oc=0;
+			dt=0;
+			st=1;
+			sk=2;
+		}
+		len[18]+=(1-len[18])/50;
+	}else if sk == 2{
+		len[19]+=(1-len[19])/50;
+	}
 	if !on{
 		len[0]+=(850-len[0])/10;
 		draw_set_color(c_white);
@@ -8,13 +40,11 @@ if activate{
 		draw_sprite_part_ext(sprLight, 0, 10, 20, 10, 10, 0, 250, len[0]/10, 1, c_white, 1);
 	}else{
 		len[1]+=(118-len[1])/10;
-		if go{
-			len[2]+=(1-len[2])/10;
-		}
+		if go{len[2]+=(1-len[2])/10;}
 		draw_set_color(c_white);
-		draw_rectangle(0, 230-len[1]-len[2]*100, 640, 250+len[1]+len[2]*100, 0);
-		draw_sprite_part_ext(sprLight, 0, 10, 0, 10, 10, 0, 220-len[1]-len[2]*100, 90, 1, c_white, 1);
-		draw_sprite_part_ext(sprLight, 0, 10, 20, 10, 10, 0, 250+len[1]+len[2]*100, 90, 1, c_white, 1);
+		draw_rectangle(0, 230-len[1]-len[2]*80, 640, 250+len[1]+len[2]*80, 0);
+		draw_sprite_part_ext(sprLight, 0, 10, 0, 10, 10, 0, 220-len[1]-len[2]*80, 90, 1, c_white, 1);
+		draw_sprite_part_ext(sprLight, 0, 10, 20, 10, 10, 0, 250+len[1]+len[2]*80, 90, 1, c_white, 1);
 	}
 	if re == 1{
 		time[0]++;
@@ -66,30 +96,16 @@ if activate{
 		if len[6]<1{len[6]+=(1.1-len[6])/10;}else if len[6]>1{len[6]=1;}
 		if len[6] == 1{
 			time[2]+=time[2]<17;
-			if time[2]>16{
-				if len[7]<1{len[7]+=(1.1-len[7])/10;}else if len[7]>1{len[7]=1;}
-			}
+			if time[2]>16{if len[7]<1{len[7]+=(1.1-len[7])/10;}else if len[7]>1{len[7]=1;}}
 		}
 		gpu_set_blendmode_ext(bm_inv_dest_color, bm_zero);
 		draw_set_color(c_white);
 		i=0;
-		repeat(2){
-			draw_rectangle(len[7]*640, 165+42*i, len[6]*640, 185+42*i, 0);
-			i++;
-		}
-		repeat(2){
-			draw_rectangle(640-len[6]*640, 165+42*i, 640-len[7]*641, 185+42*i, 0);
-			i++;
-		}
+		repeat(2){draw_rectangle(len[7]*640, 165+42*i, len[6]*640, 185+42*i, 0);i++;}
+		repeat(2){draw_rectangle(640-len[6]*640, 165+42*i, 640-len[7]*641, 185+42*i, 0);i++;}
 		i=0;
-		repeat(4){
-			draw_rectangle(56+42*i, 112+len[6]*256, 76+42*i, 112+len[7]*255, 0);
-			i++;
-		}
-		repeat(4){
-			draw_rectangle(742-42*i, 368-len[6]*256, 720-42*i, 368-len[7]*257, 0);
-			i++;
-		}
+		repeat(4){draw_rectangle(56+42*i, 112+len[6]*256, 76+42*i, 112+len[7]*255, 0);i++;}
+		repeat(4){draw_rectangle(742-42*i, 368-len[6]*256, 720-42*i, 368-len[7]*257, 0);i++;}
 		gpu_set_blendmode(bm_normal);
 	}
 	if co{
@@ -160,20 +176,59 @@ if activate{
 		sm=2;
 	}
 	if sm == 2{
+		if len[11]<0.85{g=sin(current_time)*5;}else{g=1;dd=1;}
+		if !dd{i=0;}
 		len[11]+=(1-len[11])/20;
-		with(butBall){image_alpha=other.len[11];}
-		with(objBlock){event_user(0);}
-		if len[11]<0.85{g=sin(current_time)*5;}else{g=1;}
-		i=0;
-		surface_set_target(global.sf[1]);
+		with(butBall){if !run{image_alpha=other.len[11];}}
+		surface_set_target(global.sf[2]);
 		draw_set_alpha(0.5);
 		draw_set_color(c_black);
 		draw_rectangle(95, 165, 460+90-5, 160+130-5, 0);
 		draw_set_alpha(1);
+		with(butBall){if run<3{draw_self();}}
 		surface_reset_target();
-		repeat(480){
-			draw_surface_part_ext(global.sf[1], 0, g*i, 640, 1, (len[11]<0.85)?g/10:!g, g*i, 1, 1, c_white, len[11]);
-			i++;
+		if !dd{
+			repeat(global.bkhs){
+				draw_surface_part_ext(global.sf[2], global.bkxs, global.bkys+g*i, global.bkws, 1, global.bkxs+((len[11]<0.85)?g/10:!g), global.bkys+g*i, 1, 1, c_white, len[11]);
+				i++;
+			}
 		}
+		if dd{draw_surface_part_ext(global.sf[2], global.bkxs, global.bkys, global.bkws, global.bkhs, global.bkxs, global.bkys, 1, 1, c_white, 1);}
+	}
+	if lt{
+		i=0;
+		time[3]+=0.2;
+		surface_set_target(global.sf[3]);
+		draw_set_alpha(1);
+		draw_set_color(c_white);
+		draw_rectangle(95, 165, 460+90-5, 160+130-5, 0);
+		with(butBall){if run>2{draw_self();}else if run<3{dmg=0;}}
+		with(butShadow){if sprite_index!=noone{draw_self();}}
+		surface_reset_target();
+		repeat(global.bkws/32){
+			i++;
+			j=0;
+			repeat(global.bkhs/32){
+				j++;
+				if i+j<time[3]{len[17][i, j]+=(1-len[17][i, j])/10;}
+				if len[17][i, j]>0.95{len[17][i, j]=1;}
+				draw_surface_part_ext(global.sf[3], global.bkxs+i*32-32, global.bkys+j*32-32+1.25, 32+7, 32, global.bkxs+(i*32-len[17][i, j]*16-16), global.bkys+(j*32-len[17][i, j]*16-16), len[17][i, j], len[17][i, j], c_white, 1);
+			}
+		}
+	}
+	if go{
+		bkset(90-len[2]*40, 160-len[2]*80, 460+len[2]*80, 130+len[2]*160);
+		//draw_set_alpha(1);
+		//draw_set_color(c_white);
+		//draw_rectangle(mk[1].x+5, mk[0].y+5, mk[3].x-1, mk[2].y-1, 0);
+		og=1;
+	}
+	if og{
+		len[20]+=(1.1-len[20])/10;
+		if len[20]>1{len[20]=1;}
+		draw_set_color(c_gray);
+		draw_set_alpha(1);
+		draw_rectangle(global.bkxs+5, 225, global.bkxs+global.bkws-6, 225-160*len[20]+20, 0);
+		draw_rectangle(global.bkxs+5, 225, global.bkxs+global.bkws-6, 225+160*len[20]-21, 0);
 	}
 }

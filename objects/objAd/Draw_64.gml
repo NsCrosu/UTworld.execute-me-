@@ -4,5 +4,6 @@ if stop{
 	draw_sprite_ext(objPlayer.sprite_index, objPlayer.image_index, objPlayer.x, objPlayer.y, objPlayer.image_xscale, objPlayer.image_yscale, objPlayer.image_angle, objPlayer.image_blend, objPlayer.image_alpha);
 	draw_set_halign(fa_middle);
 	draw_set_valign(fa_center);
+	draw_set_color(c_white);
 	draw_text(320, 240, "Press \"Z\" or enter\nto restart the game");
 }

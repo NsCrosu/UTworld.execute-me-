@@ -1,7 +1,7 @@
-if surface_exists(global.sf[0]){
-	surface_set_target(global.sf[0]);
+if surface_exists(global.sf[1]){
+	surface_set_target(global.sf[1]);
 }else{
-	global.sf[0] = surface_create(640, 480);
+	global.sf[1] = surface_create(640, 480);
 }
 draw_clear_alpha(c_black, 0);
 
@@ -22,10 +22,10 @@ gpu_set_blendmode(bm_normal);
 draw_sprite_ext(sprPixel, 0, 274, 399, objPlayer.maxHP*1.3, 23, 0, c_gray, 1);
 draw_sprite_ext(sprPixel, 0, 275, 400, objPlayer.nowHP*1.2, 21, 0, c_white, 1);
 
-if surface_exists(global.sf[0]){
+if surface_exists(global.sf[1]){
 	surface_reset_target();
 }else{
-	global.sf[0] = surface_create(640, 480);
+	global.sf[1] = surface_create(640, 480);
 }
 
 if activate{
@@ -41,14 +41,14 @@ if activate{
 		shader_set_uniform_f(uni_wave_distortion, var_wave_distortion);
 		shader_set_uniform_f(uni_wave_speed, var_wave_speed);
 		repeat(2){
-			draw_surface_part_ext(global.sf[0], 320-len[0]*320, 0, len[0]*320, 480, 320-len[0]*320, sfy, 1, 1, c_white, 1);
-			draw_surface_part_ext(global.sf[0], 320, 0, len[0]*320, 480, 320, sfy, 1, 1, c_white, 1);
+			draw_surface_part_ext(global.sf[1], 320-len[0]*320, 0, len[0]*320, 480, 320-len[0]*320, sfy, 1, 1, c_white, 1);
+			draw_surface_part_ext(global.sf[1], 320, 0, len[0]*320, 480, 320, sfy, 1, 1, c_white, 1);
 		}
 		shader_reset();
 	}else{
 		repeat(2){
-			draw_surface_part_ext(global.sf[0], 320-len[0]*320, 0, len[0]*320, 480, 320-len[0]*320, sfy, 1, 1, c_white, 1);
-			draw_surface_part_ext(global.sf[0], 320, 0, len[0]*320, 480, 320, sfy, 1, 1, c_white, 1);
+			draw_surface_part_ext(global.sf[1], 320-len[0]*320, 0, len[0]*320, 480, 320-len[0]*320, sfy, 1, 1, c_white, 1);
+			draw_surface_part_ext(global.sf[1], 320, 0, len[0]*320, 480, 320, sfy, 1, 1, c_white, 1);
 		}
 	}
 	if mv{
@@ -56,5 +56,5 @@ if activate{
 		sfy=len[1]*52;
 	}
 }else{
-	draw_surface_ext(global.sf[0], 0, sfy, 1, 1, 0, c_white, 1);
+	draw_surface_ext(global.sf[1], 0, sfy, 1, 1, 0, c_white, 1);
 }

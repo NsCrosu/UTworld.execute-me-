@@ -82,7 +82,7 @@ function sh_game_restart(){
 }
 
 function sh_instance_create(args){
-	instance_create(args[1], args[2], asset_get_index(args[3]));
+	instance_create_depth(args[1], args[2], 0, asset_get_index(args[3]));
 	return "Successfully created [ " + args[3] + " ] at [ " + args[1] + ", " + args[2] + " ] !";
 }
 function meta_instance_create(){

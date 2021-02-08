@@ -7,7 +7,7 @@ function bkmk(xs, ys, ws, hs){
 	var dep = 0;
 	if argument_count > 4{blend = argument[4];}
 	if argument_count > 5{dep = argument[5];}
-	var mk = array_create(4, 0);
+	mk = array_create(4, 0);
 	mk[0] = instance_create_depth(xs, ys, 0, objBlock);
 	mk[0].xs = ws-5;
 	mk[0].depth = dep;
