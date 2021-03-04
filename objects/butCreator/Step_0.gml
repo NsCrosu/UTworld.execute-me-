@@ -6,10 +6,11 @@ switch(run){
 		if len[0] mod 9 == 0{
 			dir=random_range(20+(side-1)*5, 160+(side-1)*-5);
 			var a=instance_create_depth(xx, yy, depth, butBall);
-			a.image_blend=c_black;
+			a.image_blend=butColor.red;
 			a.direction=dir+180;
 			a.friction=-0.1;
 			a.speed=1;
+			a.run=8;
 		}
 		break;
 	case 1:
@@ -37,7 +38,7 @@ switch(run){
 				a.xx=xx;
 				a.yy=yy;
 				a.image_alpha=0;
-				a.image_blend=c_black;
+				a.image_blend=butColor.red;
 				a.len[1]=i*8;
 				a.des=0;
 				a.run=brun;
@@ -52,7 +53,7 @@ switch(run){
 			a.direction=(!side)?0:-90;
 			a.speed=1.5;
 			a.friction=-0.1;
-			a.image_blend=c_black;
+			a.image_blend=butColor.red;
 			a.run=run;
 		}
 		break;
@@ -65,7 +66,7 @@ switch(run){
 				var a=instance_create_depth(xx, yy, depth, butBall);
 				a.xx=xx;
 				a.yy=yy;
-				a.image_blend=c_black;
+				a.image_blend=butColor.red;
 				a.image_alpha=0;
 				a.len[0]=i*72;
 				a.len[1]=side;

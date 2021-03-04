@@ -1,4 +1,4 @@
-len = array_create(30, 0);
+len = array_create(99, 0);
 len[3] = array_create(20, 0);
 len[10] = array_create(20, 0);
 len[12] = array_create(20, 0);

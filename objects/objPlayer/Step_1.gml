@@ -15,18 +15,18 @@ modes[mode.red] = function(){
 }
 modes[mode.blue] = function(){
 	image_blend = $EE1C24;
-							var left = keyboard_check(vk_left);
-							var up = keyboard_check(vk_up);                //  嗯
-							var right = keyboard_check(vk_right);    //               这里要换成蓝心的参数
-							var down = keyboard_check(vk_down);          //  但是我懒得做了, 所以暂时用红心的
-							if moveable{                       //                                    顶替一下
-								repeat(spd*10){
-									if left{if(!position_meeting(x-sprite_width/2, y, objBlock)){x-=0.1;}}
-									if up{if(!position_meeting(x, y-sprite_height/2, objBlock)){y-=0.1;}}
-									if right{if(!position_meeting(x+sprite_width/2, y, objBlock)){x+=0.1;}}
-									if down{if(!position_meeting(x, y+sprite_height/2, objBlock)){y+=0.1;}}
-								}
-							}                                                    //       以后肯定改
+					var left = keyboard_check(vk_left);
+					var up = keyboard_check(vk_up);                //  嗯
+					var right = keyboard_check(vk_right);    //               这里要换成蓝心的参数
+					var down = keyboard_check(vk_down);          //  但是我懒得做了, 所以暂时用红心的
+					if moveable{                       //                                  顶替一下
+						repeat(spd*10){
+							if left{if(!position_meeting(x-sprite_width/2, y, objBlock)){x-=0.1;}}
+							if up{if(!position_meeting(x, y-sprite_height/2, objBlock)){y-=0.1;}}
+							if right{if(!position_meeting(x+sprite_width/2, y, objBlock)){x+=0.1;}}
+							if down{if(!position_meeting(x, y+sprite_height/2, objBlock)){y+=0.1;}}
+						}
+					}                                                    //       以后肯定改
 }
 
 states[state.normal] = function(){

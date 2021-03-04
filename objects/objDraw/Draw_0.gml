@@ -13,24 +13,12 @@ if activate{
 			objAd.timeline_position=111.1152133;
 			objAd.game_time=640;
 			objLog.str="";
-			i=0;
-			repeat(30){objLog.strdraw[i]="";i++;}
-			plx=320;
-			ply=240;
-			on=1;
-			re=0;
-			pe=0;
-			co=0;
-			fd=0;
-			oc=0;
-			dt=0;
-			st=1;
-			sk=2;
+			i=0;repeat(30){objLog.strdraw[i]="";i++;}
+			plx=320;ply=240;on=1;re=0;pe=0;
+			co=0;fd=0;oc=0;dt=0;st=1;sk=2;
 		}
 		len[18]+=(1-len[18])/50;
-	}else if sk == 2{
-		len[19]+=(1-len[19])/50;
-	}
+	}else if sk == 2{len[19]+=(1-len[19])/50;}
 	if !on{
 		len[0]+=(850-len[0])/10;
 		draw_set_color(c_white);
@@ -143,11 +131,7 @@ if activate{
 		draw_set_color(c_black);
 		draw_set_alpha(len[11]);
 		if len[13]<1{len[13]+=(1.1-len[13])/10;}else if len[13]>1{len[13]=1;}
-		if len[13] == 1{
-			if dt == 2{
-				if len[14]<1{len[14]+=(1.1-len[14])/10;}else if len[14]>1{len[14]=1;}
-			}
-		}
+		if len[13] == 1{if dt == 2{if len[14]<1{len[14]+=(1.1-len[14])/10;}else if len[14]>1{len[14]=1;}}}
 		i=0;
 		repeat(8){
 			if len[12][i]<string_length(word[0, i]){len[12][i]+=0.25;}
@@ -161,74 +145,93 @@ if activate{
 			i++;
 		}
 		draw_set_alpha(1);
-		if len[14] == 1{
-			dt++;
-		}
+		if len[14] == 1{dt++;}
 	}
 	if st{if !instance_exists(objUI){with(instance_create_depth(0, 0, 0, objUI)){activate=true};}st=0;}
 	if mp{plx+=(128-plx)/10;objPlayer.x=plx;objPlayer.y=ply;}
 	if dp{with(objPlayer){event_user(0);}}
 	if sm == 1{
 		len[11]=0;
-		bk=bkmk(90, 160, 460, 130, c_black, -1);
-		i=0;
-		repeat(4){bk[i].image_alpha=len[11];i++;}
+		//bk=bkmk(90, 160, 460, 130, c_black, -1);
+		//i=0;
+		//repeat(4){bk[i].image_alpha=len[11];i++;}
+		bk=instance_create_depth(0, 0, -1, objBoarder);
+		bk.x1=90;bk.y1=160;bk.x2=550;bk.y2=290;
+		bk.image_alpha=0;bk.image_blend=c_gray;
+		global.bkxs=90;
+		global.bkys=160;
+		global.bkws=460;
+		global.bkhs=130;
 		sm=2;
 	}
 	if sm == 2{
 		if len[11]<0.85{g=sin(current_time)*5;}else{g=1;dd=1;}
 		if !dd{i=0;}
 		len[11]+=(1-len[11])/20;
-		with(butBall){if !run{image_alpha=other.len[11];}}
-		surface_set_target(global.sf[2]);
-		draw_set_alpha(0.5);
-		draw_set_color(c_black);
-		draw_rectangle(95, 165, 460+90-5, 160+130-5, 0);
-		draw_set_alpha(1);
-		with(butBall){if run<3{draw_self();}}
-		surface_reset_target();
-		if !dd{
+		bk.image_alpha=len[11];
+		//with(butBall){if !run{image_alpha=other.len[11];}}
+		//surface_set_target(global.sf[boarder]);
+		//draw_set_alpha(0.5);
+		//draw_set_color(c_black);
+		//draw_rectangle(95, 165, 460+90-5, 160+130-5, 0);
+		//draw_set_alpha(1);
+		////with(butBall){if run<3{draw_self();}}
+		//surface_reset_target();
+		if dd == 0{
 			repeat(global.bkhs){
-				draw_surface_part_ext(global.sf[2], global.bkxs, global.bkys+g*i, global.bkws, 1, global.bkxs+((len[11]<0.85)?g/10:!g), global.bkys+g*i, 1, 1, c_white, len[11]);
+				draw_surface_part_ext(global.sf[boarder], global.bkxs, global.bkys+g*i, global.bkws, 1, global.bkxs+((len[11]<0.85)?g/10:!g), global.bkys+g*i, 1, 1, c_white, len[11]);
 				i++;
 			}
+		}else if dd == 1{
+			draw_surface_part_ext(global.sf[boarder], global.bkxs, global.bkys, global.bkws, global.bkhs, global.bkxs, global.bkys, 1, 1, c_white, 1);
 		}
-		if dd{draw_surface_part_ext(global.sf[2], global.bkxs, global.bkys, global.bkws, global.bkhs, global.bkxs, global.bkys, 1, 1, c_white, 1);}
 	}
 	if lt{
 		i=0;
+		if time[3] == 1{with(objBoarder){target=boarder1;}}
 		time[3]+=0.2;
-		surface_set_target(global.sf[3]);
-		draw_set_alpha(1);
-		draw_set_color(c_white);
-		draw_rectangle(95, 165, 460+90-5, 160+130-5, 0);
-		with(butBall){if run>2{draw_self();}else if run<3{dmg=0;}}
-		with(butShadow){if sprite_index!=noone{draw_self();}}
-		surface_reset_target();
-		repeat(global.bkws/32){
-			i++;
-			j=0;
-			repeat(global.bkhs/32){
-				j++;
-				if i+j<time[3]{len[17][i, j]+=(1-len[17][i, j])/10;}
-				if len[17][i, j]>0.95{len[17][i, j]=1;}
-				draw_surface_part_ext(global.sf[3], global.bkxs+i*32-32, global.bkys+j*32-32+1.25, 32+7, 32, global.bkxs+(i*32-len[17][i, j]*16-16), global.bkys+(j*32-len[17][i, j]*16-16), len[17][i, j], len[17][i, j], c_white, 1);
+		//surface_set_target(global.sf[boarder1]);
+		//draw_set_alpha(1);
+		//draw_set_color(c_white);
+		//draw_rectangle(95, 165, 460+90-5, 160+130-5, 0);
+		len[50]+=(1-len[50])/20;
+		objBoarder.image_blend=merge_color(c_gray, c_white, len[50]);
+		with(butBall){if run<3{dmg=0;}}
+		//with(butShadow){if sprite_index!=noone{draw_self();}}
+//		surface_reset_target();
+		if len[17][0,0] == 1{
+			draw_surface_part_ext(global.sf[boarder1], global.bkxs, global.bkys, global.bkws, global.bkhs, global.bkxs, global.bkys, 1, 0, c_white, 1);
+			dd=2;
+		}else{
+			repeat(global.bkws/32){
+				i++;
+				j=0;
+				repeat(global.bkhs/32){
+					j++;
+					if i+j<time[3]{len[17][i,j]+=(1-len[17][i,j])/10;}
+					if len[17][i,j]>0.95{len[17][i,j]=1;}
+					draw_surface_part_ext(global.sf[boarder1], global.bkxs+i*32-32, global.bkys+j*32-32+1.25, 32+7, 32, global.bkxs+(i*32-len[17][i, j]*16-16), global.bkys+(j*32-len[17][i, j]*16-16), len[17][i, j], len[17][i, j], c_white, 1);
+				}
 			}
 		}
 	}
 	if go{
 		bkset(90-len[2]*40, 160-len[2]*80, 460+len[2]*80, 130+len[2]*160);
-		//draw_set_alpha(1);
-		//draw_set_color(c_white);
-		//draw_rectangle(mk[1].x+5, mk[0].y+5, mk[3].x-1, mk[2].y-1, 0);
 		og=1;
 	}
 	if og{
 		len[20]+=(1.1-len[20])/10;
 		if len[20]>1{len[20]=1;}
-		draw_set_color(c_gray);
-		draw_set_alpha(1);
-		draw_rectangle(global.bkxs+5, 225, global.bkxs+global.bkws-6, 225-160*len[20]+20, 0);
-		draw_rectangle(global.bkxs+5, 225, global.bkxs+global.bkws-6, 225+160*len[20]-21, 0);
+		og=2;
+	}
+	if og == 2{
+		objBoarder.target=-1;
+		lt=0;
+		og=3;
+	}
+	if og == 3{
+		len[51]+=(1-len[51])/20;
+		objBoarder.image_blend=merge_color(c_white, c_gray, len[51]);
+		objBoarder.image_alpha=1;
 	}
 }
