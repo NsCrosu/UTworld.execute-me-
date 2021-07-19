@@ -1,1 +1,0 @@
-log.str+="/dataTable.dataCheck();";

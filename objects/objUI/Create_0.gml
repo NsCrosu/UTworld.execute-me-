@@ -1,19 +1,3 @@
 len = array_create(20, 0);
-activate = false;
 mv = 0;
 sfy = 0;
-
-uni_time = shader_get_uniform(shdRipple,"time");
-var_time_var = 0;
-uni_mouse_pos = shader_get_uniform(shdRipple,"mouse_pos");
-var_mouse_pos_x = 320;
-var_mouse_pos_y = 484;
-uni_resolution = shader_get_uniform(shdRipple,"resolution");
-var_resolution_x = 640;
-var_resolution_y = 480;
-uni_wave_amount = shader_get_uniform(shdRipple,"wave_amount");
-var_wave_amount = 100;
-uni_wave_distortion = shader_get_uniform(shdRipple,"wave_distortion");
-var_wave_distortion = 60;
-uni_wave_speed = shader_get_uniform(shdRipple,"wave_speed");
-var_wave_speed = 6.0;

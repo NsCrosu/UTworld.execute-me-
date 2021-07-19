@@ -8,6 +8,7 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
+<<<<<<< HEAD:sprites/sprButBall/sprButBall.yy
   "bbox_right": 7,
   "bbox_top": 0,
   "bbox_bottom": 7,
@@ -16,6 +17,16 @@
   "For3D": false,
   "width": 8,
   "height": 8,
+=======
+  "bbox_right": 399,
+  "bbox_top": 0,
+  "bbox_bottom": 127,
+  "HTile": false,
+  "VTile": false,
+  "For3D": false,
+  "width": 400,
+  "height": 128,
+>>>>>>> parent of 2dbb689 (sbsurface):sprites/sprTemp/sprTemp.yy
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,12 +35,18 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
+<<<<<<< HEAD:sprites/sprButBall/sprButBall.yy
     {"compositeImage":{"FrameId":{"name":"bb2eae8e-196d-44a3-a7ee-7100866646f5","path":"sprites/sprButBall/sprButBall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"bb2eae8e-196d-44a3-a7ee-7100866646f5","path":"sprites/sprButBall/sprButBall.yy",},"LayerId":{"name":"efa2c18c-5b44-47f5-b043-e66dae941638","path":"sprites/sprButBall/sprButBall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"sprButBall","path":"sprites/sprButBall/sprButBall.yy",},"resourceVersion":"1.0","name":"bb2eae8e-196d-44a3-a7ee-7100866646f5","tags":[],"resourceType":"GMSpriteFrame",},
+=======
+    {"compositeImage":{"FrameId":{"name":"805fb4d6-66a1-4f2e-8ee1-2a3600a79514","path":"sprites/sprTemp/sprTemp.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"805fb4d6-66a1-4f2e-8ee1-2a3600a79514","path":"sprites/sprTemp/sprTemp.yy",},"LayerId":{"name":"ee9164d6-9c7a-4d87-9287-d3a9a325e737","path":"sprites/sprTemp/sprTemp.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sprTemp","path":"sprites/sprTemp/sprTemp.yy",},"resourceVersion":"1.0","name":"805fb4d6-66a1-4f2e-8ee1-2a3600a79514","tags":[],"resourceType":"GMSpriteFrame",},
+>>>>>>> parent of 2dbb689 (sbsurface):sprites/sprTemp/sprTemp.yy
   ],
   "sequence": {
-    "spriteId": {"name":"sprButBall","path":"sprites/sprButBall/sprButBall.yy",},
+    "spriteId": {"name":"sprTemp","path":"sprites/sprTemp/sprTemp.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 1.0,
@@ -41,7 +58,11 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+<<<<<<< HEAD:sprites/sprButBall/sprButBall.yy
             {"id":"669a680c-eb47-4d86-9eaa-9ad34d67237a","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bb2eae8e-196d-44a3-a7ee-7100866646f5","path":"sprites/sprButBall/sprButBall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+=======
+            {"id":"6c9a2b2b-eb13-4670-903c-3f14066c857f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"805fb4d6-66a1-4f2e-8ee1-2a3600a79514","path":"sprites/sprTemp/sprTemp.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+>>>>>>> parent of 2dbb689 (sbsurface):sprites/sprTemp/sprTemp.yy
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -54,18 +75,23 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
+<<<<<<< HEAD:sprites/sprButBall/sprButBall.yy
     "xorigin": 4,
     "yorigin": 4,
+=======
+    "xorigin": 200,
+    "yorigin": 64,
+>>>>>>> parent of 2dbb689 (sbsurface):sprites/sprTemp/sprTemp.yy
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprButBall","path":"sprites/sprButBall/sprButBall.yy",},
+    "parent": {"name":"sprTemp","path":"sprites/sprTemp/sprTemp.yy",},
     "resourceVersion": "1.3",
-    "name": "sprButBall",
+    "name": "sprTemp",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"efa2c18c-5b44-47f5-b043-e66dae941638","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ee9164d6-9c7a-4d87-9287-d3a9a325e737","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": {
     "left": 2,
@@ -97,7 +123,7 @@
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sprButBall",
+  "name": "sprTemp",
   "tags": [],
   "resourceType": "GMSprite",
 }

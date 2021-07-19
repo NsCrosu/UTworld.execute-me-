@@ -1,5 +1,7 @@
 modes[mode.red] = function(){
 	image_blend = $241CEE;
+	var spd = 3;
+	var spd = keyboard_check(vk_shift) ? spd/2 : spd;
 	var left = keyboard_check(vk_left);
 	var up = keyboard_check(vk_up);
 	var right = keyboard_check(vk_right);
@@ -13,6 +15,7 @@ modes[mode.red] = function(){
 		}
 	}
 }
+<<<<<<< HEAD
 modes[mode.blue] = function(){
 	image_blend = $EE1C24;
 					var left = keyboard_check(vk_left);
@@ -77,3 +80,5 @@ states[state.die] = function(){
 	moveable = false;
 	nowMode = mode.red;
 }
+=======
+>>>>>>> parent of 2dbb689 (sbsurface)
